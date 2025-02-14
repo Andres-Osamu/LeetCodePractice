@@ -7,5 +7,8 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: str
-        """
+        """ 
+
+        #Idea largest number is the closest to a 10, 100, 1000, 10000 etc...
+
     
