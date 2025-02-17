@@ -88,12 +88,66 @@ class Solution(object):
         #  Removes left zeroes
         return str(int(str(output)))
 
+            
+    def arbysSolution (self, nums):
+
+        arrayValue = []
+
+        totalDigits = 0
+        for number in nums:
+            totalDigits += len(str(number))
+
+        largestNumber = int('9' * totalDigits)
+
+        count = 0
+        for number in nums:
+            currentDigit = len(str(number))
+            normalizedValue = str(number) + '9'*(totalDigits-currentDigit)
+            heuristicValue = largestNumber - int(normalizedValue)
+            arrayValue.append([number,heuristicValue])
+
+        # print(arrayValue)
+        product = ""
+        sortedArray = sorted(arrayValue, key=lambda x: (x[1], x[0]))
+        for pair in sortedArray:
+            product = product + str(pair[0])
+        return product
+
+    def solution2(self, nums):
+        
+        product = ""
+                        
+        
+
+            
+        
+        return product
+                
+            
+                
+
+
+
+        
+
     
-            
+# 10, 5, 45
+# Total Digits = 5
+# for each number
+# TotalDigits - currentDigitCount = k
+# str(number) + "9"*k
 
+    # 2(9), 10
+    # 71 x 90
 
-       
-            
+    # 22(9), 221
+    # 771 x 779 
+
+    # 111311, 1113(99)
+    # 888689, 888601
+
+    # 997, 98(9), 9(99)
+    # 3, 11, 1
 
  
 # product = 1113 - 11
@@ -113,16 +167,59 @@ class Solution(object):
 # nums =  [111311,1113]
 
 # 31 x 311
-nums = [3,43,48,94,85,33,64,32,63,66]
+# nums = [3,43,48,94,85,33,64,32,63,66]
+
 
 # [10, 2, 45]
 # _ _ _ _ _
 # 99999
 # 1 0
+# nums = [997, 98, 9]
 obj = Solution()
-print(obj.largestNumber(nums))
+# print(obj.largestNumber(nums))
+# nums = [3,43,48,94,85,33,64,32,63,66]
+
+# 10, 2(9), 45
+# 90, 71, 55
+
+# 9(99), 5(99), 34(9), 30(9), 3(99)
+# 1, 41, 66, 70, 69
+# 1, 401, 651, 691, 601
+
+# (99)9, (99)5, (9)34, (9)30, (99)3
+# 1, 5, 66, 70, 7
+nums = [3,30,34,5,9]
+print(obj.solution2(nums))
+# 3(99), 30(9), 34(9), 5(99), 9(99)
+#
+# print(obj.arbysSolution(nums))
 
 
+
+# 3, 30 , 34
+# 3 x 30 ---- A x B
+# 330  AB
+# 303  BA
+ 
+# 30 x 34 B X C
+# 3034 BC
+# 3430 CB
+
+
+# Product =  C
+
+# A X B
+# A
+
+# product = CAB
+
+# 10, 2, 45
+# 102, 210
+# 245, 452
+
+# 45
+# 102, 210
+# 45210
 
 
 
